@@ -5,10 +5,11 @@
 
 body {
   padding: 20px;
-  width: 100%;
-  height: 100vh;
+  max-width: 1980px;
+  height: auto;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 30px;
   flex-wrap: wrap;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -17,7 +18,8 @@ body {
 
 h2,
 p {
-  color: lightcyan;
+  color: rgb(230, 230, 230, 0.9);
+  text-align: center;
 }
 
 .songTitle {
@@ -33,13 +35,15 @@ p {
   font-size: 16px;
 }
 
-.card {
+.card,
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  width: 250px;
+  width: 260px;
   height: 200px;
+  padding: 5px 0;
   border-radius: 6px;
   box-shadow: 5px 5px 5px black;
   background-color: rgb(25, 48, 48);
@@ -49,4 +53,50 @@ p {
 .card:hover {
   background-color: rgba(25, 48, 48, 0.6);
   cursor: pointer;
+}
+
+.card:active {
+  transform: translateX(5px) translateY(5px);
+  box-shadow: none;
+}
+
+.listened {
+  opacity: 0.5;
+}
+
+.inputTitle,
+.inputArtist,
+.inputYear {
+  line-height: 24px;
+  padding-left: 5px;
+  font-size: 16px;
+  background-color: rgb(197, 197, 197);
+  border: none;
+  border-radius: 3px;
+}
+
+input::-webkit-input-placeholder {
+  color: rgba(87, 87, 87, 0.7);
+}
+
+.submitEl {
+  width: 80px;
+  height: 28px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: rgba(87, 87, 87);
+  color: rgb(230, 230, 230, 0.9);
+  border: none;
+  border-radius: 3px;
+  box-shadow: 3px 3px 3px black;
+  transition: all 0.3s ease;
+}
+
+.submitEl:hover {
+  background-color: rgba(110, 110, 110);
+}
+
+.submitEl:active {
+  transform: translateX(3px) translateY(3px);
+  box-shadow: none;
 }
