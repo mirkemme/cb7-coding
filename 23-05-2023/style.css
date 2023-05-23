@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login,
+.welcomeMessage {
+  padding: 20px 40px;
+}
+
+.cart {
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.cartItem {
+  width: 200px;
+  height: 100px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 8px;
+  background-color: aquamarine;
+  box-shadow: 2px 2px 5px black;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cartItem:active {
+  background-color: rgb(199, 255, 236);
+  transform: translateX(5px) translateY(5px);
+  box-shadow: none;
+}
