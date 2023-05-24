@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: darkslategray;
+}
+
+.peopleWrapper,
+.booksWrapper {
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.bookItem,
+.personItem {
+  width: 200px;
+  height: 100px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  color: black;
+  background-color: rgb(255, 197, 197);
+  box-shadow: 2px 2px 5px black;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.personItem {
+  background-color: lightblue;
+}
+
+.bookItem:active,
+.personItem:active {
+  background-color: rgb(219, 219, 219);
+  transform: translateX(5px) translateY(5px);
+  box-shadow: none;
+}
