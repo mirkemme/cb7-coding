@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: lightseagreen;
+}
+
+.todoListWrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.card {
+  width: 22rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px black;
+  background-color: lightcoral;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.card:active {
+  transform: translateX(5px) translateY(5px);
+  box-shadow: none;
+}
+
+.card__text {
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 4px black;
+  color: rgb(230, 230, 230, 0.9);
+}
+
+.done {
+  background-color: darkslategrey;
+  box-shadow: none;
+}
+
+.done p {
+  color: rgba(202, 202, 202, 0.9);
+  text-decoration: line-through;
+}
