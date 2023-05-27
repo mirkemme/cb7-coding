@@ -1,5 +1,5 @@
 import { GET, POST, DELETE } from "./utils/http.js";
-import { todoListGen, createEl, addTodo, deleteTodo, qS, createInputModal } from "./utils/fn.js";
+import { todoList, getTodoList, createEl, deleteTodo, qS, createInputModal, listItemRender, addListeners } from "./utils/fn.js";
 
 export const bodyEl = qS("body");
 export const rootEl = qS("#root");
@@ -13,8 +13,15 @@ const editBtn = createEl("button", "Edit", { name: "class", value: "editBtn" });
 buttonsContainer.append(addBtn, deleteBtn, editBtn);
 rootEl.append(buttonsContainer);
 
-todoListGen();
-
-deleteTodo("1");
+/* Se la todoList è vuota (todoList.length == 0) allora chiamo getTodoList() per popolare la mia todo list con una chiamata
+GET API su dummyjson. Altrimenti, avendo usato local storage, la todo list sarà già popolata e quindi procedo a renderizzare
+la lista e ad aggiungere i listeners sulle cards */
+if (todoList.length) {
+    listItemRender();
+    addListeners();
+} else {
+    getTodoList();
+}
 
 addBtn.addEventListener("click", () => createInputModal());
+deleteBtn.addEventListener("click", () => deleteTodo());
