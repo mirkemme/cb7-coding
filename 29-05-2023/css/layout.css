@@ -1,0 +1,143 @@
+.mainContainer {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+header {
+}
+
+.logoWrapper {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.logoWrapper:hover {
+  background-color: var(--color-hover);
+}
+
+.logoWrapper svg {
+  width: 24px;
+  height: auto;
+  fill: var(--color-text);
+}
+
+/* Nav section */
+.navLinks {
+  list-style: none;
+}
+
+.navItem {
+}
+
+.navItem:hover .navLink__content {
+  background-color: var(--color-hover);
+}
+
+.navLink {
+  display: inline-block;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.navLink__content {
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-radius: 30px;
+}
+
+.navLink__content.active {
+  color: var(--color-brand);
+}
+
+.navLink__content.active .navLink__icon svg {
+  fill: var(--color-brand);
+}
+
+.navLink__icon {
+  position: relative;
+}
+
+.navLink__content.dot .navLink__icon::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  border-radius: 50%;
+  background-color: var(--color-brand);
+}
+
+.navLink__icon svg {
+  width: 24px;
+  height: auto;
+  fill: var(--color-text);
+}
+
+/* End nav section */
+
+.mainContent {
+}
+
+.content {
+  background-color: blue;
+}
+
+.sidebar {
+  background-color: rgb(147, 148, 150);
+}
+
+/* media query mobile e tablet*/
+@media screen and (max-width: 750px) {
+  header {
+    width: 88px;
+  }
+
+  .mainContent {
+    width: calc(100% - 88px);
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
+
+/* media query desktop */
+@media screen and (min-width: 751px) {
+  header {
+    width: 30%;
+  }
+
+  .mainContainer {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+
+  .mainContent {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .content {
+    width: 60%;
+  }
+
+  .sidebar {
+    width: 40%;
+  }
+}
