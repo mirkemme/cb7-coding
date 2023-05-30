@@ -1,0 +1,304 @@
+.mainContainer {
+  max-width: 1560px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  height: 300vh;
+}
+
+header {
+  height: 100vh;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.logoWrapper {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.logoWrapper:hover {
+  background-color: var(--color-hover);
+}
+
+.logoWrapper svg {
+  width: 24px;
+  height: auto;
+  fill: var(--color-text);
+}
+
+/* Nav section */
+.navLinks {
+  list-style-type: none;
+}
+
+.navItem {
+}
+
+.navItem:hover .navLink__content {
+  background-color: var(--color-hover);
+}
+
+.navLink {
+  display: inline-block;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.navLink__content {
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  border-radius: 30px;
+}
+
+.navItem.active .navLink__content {
+  color: var(--color-brand);
+  font-weight: 700;
+}
+
+.navItem.active .navLink__icon svg {
+  fill: var(--color-brand);
+}
+
+.navLink__icon {
+  position: relative;
+  display: flex;
+}
+
+.navItem.dot .navLink__icon::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  border-radius: 50%;
+  background-color: var(--color-brand);
+}
+
+.navLink__icon svg {
+  width: 24px;
+  height: auto;
+  fill: var(--color-text);
+}
+
+/* End nav section */
+
+/* headerCTA */
+/* button tweet */
+.headerCta {
+  position: relative;
+  margin: 12px 0;
+}
+
+.buttonTweet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 30px;
+  background-color: var(--color-brand);
+}
+
+/* endbutton tweet */
+/* End headerCTA */
+
+/* profile button*/
+.profileButton {
+  /* posizionare l'elemento fissato in basso */
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.profileButton__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.profileButton__alias {
+  font-weight: 700;
+}
+
+.profileButton__image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profileButton__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profileButton__actions svg {
+  width: 24px;
+  height: auto;
+  fill: var(--color-text);
+}
+/* endprofile button*/
+
+.mainContent {
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.tweet {
+  padding: 15px;
+  display: flex;
+  gap: 20px;
+  border: 1px solid var(--color-lines);
+}
+
+.tweet img {
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-text);
+  border-radius: 500%;
+  object-fit: cover;
+}
+
+.tweet__content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tweet__content__user {
+  display: flex;
+  gap: 10px;
+}
+
+.user__name {
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.user__username {
+  color: var(--color-dark-text);
+  letter-spacing: 1px;
+}
+
+.sidebar {
+  margin-left: 20px;
+  background-color: var(--color-sidebar);
+}
+
+/* media query mobile e tablet*/
+@media screen and (max-width: 750px) {
+  header {
+    width: 88px;
+  }
+
+  .navLink__label {
+    display: none;
+  }
+
+  .buttonTweet {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .buttonTweet svg {
+    width: 24px;
+    height: auto;
+    fill: var(--color-text);
+  }
+
+  .buttonTweet .buttonTweet__label {
+    display: none;
+  }
+
+  .buttonTweet__icon {
+    display: flex;
+  }
+
+  .profileButton {
+    width: 88px;
+  }
+
+  .profileButton__user,
+  .profileButton__actions {
+    display: none;
+  }
+  .mainContent {
+    width: calc(100% - 88px);
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
+
+/* media query desktop */
+@media screen and (min-width: 751px) {
+  header {
+    width: 25%;
+  }
+
+  .buttonTweet {
+    cursor: pointer;
+    min-height: 50px;
+  }
+
+  .buttonTweet .buttonTweet__icon {
+    display: none;
+  }
+
+  .buttonTweet .buttonTweet__label {
+    padding: 12px 20px;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 1px;
+  }
+
+  .mainContainer {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+
+  .mainContent {
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .content {
+    width: 60%;
+  }
+
+  .sidebar {
+    width: 40%;
+  }
+}
