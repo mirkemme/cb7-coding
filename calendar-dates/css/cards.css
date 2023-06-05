@@ -1,0 +1,80 @@
+.todayCardsContainer {
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.appointments_title {
+  font-weight: 200;
+}
+
+.card__wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding: 8px;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: 3px;
+  /* box-shadow: 0px 0px 10px black; */
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.card__info {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+}
+
+.card__name {
+  width: auto;
+  height: 100%;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.card__date {
+  width: auto;
+  height: 100%;
+  font-size: 12px;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.card__title {
+  width: 100%;
+  height: auto;
+  padding: 10px 5px 5px 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 15px;
+  font-weight: 300;
+  border-radius: 3px;
+  box-shadow: inset 4px 4px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.appointments_today {
+  background-color: var(--color-bg-today-cards);
+}
+
+.appointments_today .card__wrapper {
+  background-color: var(--color-bg-today-card);
+}
+
+.appointments_coming {
+  background-color: var(--color-coming-card);
+}
+
+.appointments_past {
+  background-color: var(--color-past-card);
+}
