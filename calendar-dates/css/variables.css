@@ -1,10 +1,14 @@
 :root {
-  --color-background: #d9f0ff;
-  --color-bg-today-cards: #afe6fa;
-  --color-bg-today-card: #c4cae8;
+  --color-background: #f8f8f8;
+  --color-bg-today-cards: #eeeeee;
+  --color-bg-upcoming-cards: #dedede;
+  --color-bg-past-cards: #cdcdcd;
+
+  --color-bg-today-card: #ebedf7;
+  --color-bg-upcoming-card: #ebf6d2;
+  --color-bg-past-card: #fad6d6;
+
   --color-bg-title-today-card: #aad6fa;
-  --color-coming-card: #fdf7cd;
-  --color-past-card: #f4adad;
-  --color-text-light: #ebffff;
+  --color-text-light: #f8f8f8;
   --color-text-dark: #262626;
 }

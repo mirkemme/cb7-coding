@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+header {
+  width: 100%;
+  max-width: 1400px;
+  min-width: 350px;
+  height: 80px;
+  position: fixed;
+  display: flex;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+}
+
+.main-header {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.header__logo {
+  width: 20%;
+}
+
+.header__logo svg {
+  width: auto;
+  height: 100%;
+}
+
+.header__wrapper {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.header__title {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__title h1 {
+  font-size: 30px;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1px;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0px #353535, 1px 2px 0px #353535, 1px 3px 0px #353535;
+}
+
+.header__filters {
+  width: 30%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5%;
+}
+
+.header__filters__priority,
+.header__filters__dummy {
+  position: relative;
+  padding: 5px 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.header__filters__priority:hover,
+.header__filters__dummy:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.header__filters__priority.active {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.header__filters__priority.active::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+}

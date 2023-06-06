@@ -1,5 +1,5 @@
 import { GET } from "./utils/http.js";
-import { cardGen, qS, getRandomDate } from "./utils/fn.js";
+import { cardGen, qS, getRandomDate, randomNumber, orderByPriority } from "./utils/fn.js";
 
 export const dataMock = [
     {
@@ -31,10 +31,20 @@ export const dataMock = [
     }
 ];
 
-const todayCardsContainerEl = qS(".todayCardsContainer");
-const startDate = new Date('2023-01-01');
-const endDate = new Date('2023-12-31');
-let todoList = [];
+export const todayCardsContainerEl = qS(".todayCardsContainer");
+export const upcomingCardsContainerEl = qS(".upcomingCardsContainer");
+export const pastCardsContainerEl = qS(".pastCardsContainer");
+const priorityBtnEl = qS(".header__filters__priority");
+const startDate = new Date('2023-05-20');
+const endDate = new Date('2023-06-10');
+const minPriority = 1;
+const maxPriority = 4;
+export let todoList = [];
+export let todoTodayList = [];
+export let todoUpcomingList = [];
+export let todoPastList = [];
+export let currentDate = new Date();
+let orderPriorityClickCounter = 0;
 
 /* ASYNC */
 let remoteData = GET("");
@@ -43,12 +53,37 @@ remoteData
     .then(() => {
         todoList.map((user) => {
             user.date = getRandomDate(startDate, endDate);
-            user.priority = 1; //aggiungere funzione numero random nell'intervallo 1-4
-        });
-        console.log(todoList);
+            user.priority = randomNumber(minPriority, maxPriority);
+        })
     })
+    .then(() => todoList.forEach((todo) => {
+        if (todo.date.toISOString().slice(0, 10) === currentDate.toISOString().slice(0, 10)) {
+            todayCardsContainerEl.append(cardGen(todo));
+            todoTodayList.push(todo);
+        }
+        else if (todo.date.toISOString().slice(0, 10) > currentDate.toISOString().slice(0, 10)) {
+            upcomingCardsContainerEl.append(cardGen(todo));
+            todoUpcomingList.push(todo);
+        } else {
+            pastCardsContainerEl.append(cardGen(todo));
+            todoPastList.push(todo);
+        }
+    }))
 
 /* SYNC */
-dataMock.forEach((user) => todayCardsContainerEl.append(cardGen(user)));
 
 /* LISTENERS */
+priorityBtnEl.addEventListener("click", () => {
+    ++orderPriorityClickCounter;
+    if (orderPriorityClickCounter === 1) {
+        priorityBtnEl.classList.add("active");
+        orderByPriority("descending");
+    }
+    else if (orderPriorityClickCounter === 2)
+        orderByPriority("ascending");
+    else {
+        orderByPriority("none");
+        orderPriorityClickCounter = 0;
+        priorityBtnEl.classList.remove("active");
+    }
+});

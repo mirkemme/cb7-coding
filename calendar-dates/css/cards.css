@@ -1,4 +1,6 @@
-.todayCardsContainer {
+.todayCardsContainer,
+.upcomingCardsContainer,
+.pastCardsContainer {
   width: 100%;
   height: auto;
   border-radius: 3px;
@@ -20,8 +22,8 @@
   flex-direction: column;
   gap: 12px;
   border-radius: 3px;
-  /* box-shadow: 0px 0px 10px black; */
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
   cursor: pointer;
 }
 
@@ -36,10 +38,10 @@
   gap: 6px;
 }
 
-.card__name {
+.card__priority {
   width: auto;
   height: 100%;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 300;
 }
 
@@ -51,30 +53,41 @@
   font-style: italic;
 }
 
-.card__title {
-  width: 100%;
-  height: auto;
-  padding: 10px 5px 5px 10px;
-  background-color: rgba(0, 0, 0, 0.1);
-  font-size: 15px;
-  font-weight: 300;
-  border-radius: 3px;
-  box-shadow: inset 4px 4px 5px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
-
 .appointments_today {
   background-color: var(--color-bg-today-cards);
 }
 
-.appointments_today .card__wrapper {
-  background-color: var(--color-bg-today-card);
-}
-
-.appointments_coming {
-  background-color: var(--color-coming-card);
+.appointments_upcoming {
+  background-color: var(--color-bg-upcoming-cards);
 }
 
 .appointments_past {
-  background-color: var(--color-past-card);
+  background-color: var(--color-bg-past-cards);
+}
+
+.appointments_today .card__wrapper {
+  background: var(--color-bg-today-card);
+  background: linear-gradient(0deg, var(--color-bg-today-card) 0%, #b0b8e1 100%);
+}
+
+.appointments_upcoming .card__wrapper {
+  background: var(--color-bg-upcoming-card);
+  background: linear-gradient(0deg, var(--color-bg-upcoming-card) 0%, #d6eca4 100%);
+}
+
+.appointments_past .card__wrapper {
+  background: var(--color-bg-past-card);
+  background: linear-gradient(0deg, var(--color-bg-past-card) 0%, #f4adad 100%);
+}
+
+.card__title {
+  width: 100%;
+  height: auto;
+  padding: 10px 5px 5px 10px;
+  background-color: #eeeeee;
+  font-size: 15px;
+  font-weight: 300;
+  border-radius: 3px;
+  box-shadow: inset 4px 4px 5px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }

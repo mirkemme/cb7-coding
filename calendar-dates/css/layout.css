@@ -11,29 +11,26 @@
 html {
   margin: 0 auto;
   max-width: 1400px;
+  min-width: 350px;
+  scroll-behavior: smooth;
 }
 
 body {
   width: 100%;
   height: 100%;
+  position: relative;
   font-family: Geologica, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
   color: var(--text-dark);
   background-color: var(--color-background);
 }
 
-.title {
-  width: 100%;
-  padding: 10px 20px;
-}
-
-.title h1 {
-  font-weight: 300;
-}
-
 #root {
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 80px;
+  left: 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -43,7 +40,7 @@ body {
 .appointments_today {
   padding: 20px;
 }
-.appointments_coming {
+.appointments_upcoming {
   padding: 20px;
 }
 .appointments_past {
@@ -52,30 +49,72 @@ body {
 
 /* media query mobile */
 @media screen and (max-width: 480px) {
+  header {
+    padding: 0 20px;
+  }
+
+  .main-header {
+    padding: 10px 0;
+    flex-direction: column;
+  }
+
+  .header__logo {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header__wrapper {
+    width: 100%;
+    height: 60%;
+    justify-content: space-between;
+  }
+
+  .header__title {
+    width: 60%;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+
+  .header__title h1 {
+    font-size: 18px;
+  }
+
+  .header__filters {
+    width: 40%;
+    height: 100%;
+    align-items: flex-end;
+  }
+
   #root {
     flex-direction: column;
     justify-content: flex-start;
-    gap: 20px;
+    gap: 0px;
   }
 
-  .appointments_today {
-    width: 100%;
-    height: auto;
-  }
-  .appointments_coming {
-    width: 100%;
-    height: auto;
-  }
+  .appointments_today,
+  .appointments_upcoming,
   .appointments_past {
     width: 100%;
     height: auto;
   }
 
-  .todayCardsContainer {
+  .appointments_today h2,
+  .appointments_upcoming h2,
+  .appointments_past h2 {
+    font-size: 18px;
+  }
+
+  .todayCardsContainer,
+  .upcomingCardsContainer,
+  .pastCardsContainer {
     padding: 0;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: flex-start;
   }
 
@@ -90,7 +129,7 @@ body {
     width: 33.3%;
     height: auto;
   }
-  .appointments_coming {
+  .appointments_upcoming {
     width: 33.3%;
     height: auto;
   }
@@ -102,16 +141,27 @@ body {
 
 /* media query desktop e laptop */
 @media screen and (min-width: 769px) {
+  .main-header {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
   .appointments_today {
     width: 33.3%;
     height: auto;
+    padding-left: 3%;
+    padding-right: 3%;
   }
-  .appointments_coming {
+  .appointments_upcoming {
     width: 33.3%;
     height: auto;
+    padding-left: 3%;
+    padding-right: 3%;
   }
   .appointments_past {
     width: 33.3%;
     height: auto;
+    padding-left: 3%;
+    padding-right: 3%;
   }
 }
