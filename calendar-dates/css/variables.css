@@ -1,5 +1,5 @@
 :root {
-  --color-background: #f8f8f8;
+  --color-background: #ebebf1;
   --color-bg-today-cards: #eeeeee;
   --color-bg-upcoming-cards: #dedede;
   --color-bg-past-cards: #cdcdcd;
@@ -9,6 +9,8 @@
   --color-bg-past-card: #fad6d6;
 
   --color-bg-title-today-card: #aad6fa;
+
+  --color-text-title: #363b6e;
   --color-text-light: #f8f8f8;
   --color-text-dark: #262626;
 }

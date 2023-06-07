@@ -11,7 +11,7 @@
 html {
   margin: 0 auto;
   max-width: 1400px;
-  min-width: 350px;
+  min-width: 374px;
   scroll-behavior: smooth;
 }
 
@@ -50,11 +50,11 @@ body {
 /* media query mobile */
 @media screen and (max-width: 480px) {
   header {
-    padding: 0 20px;
+    background-color: rgba(0, 0, 0, 0.1);
   }
 
   .main-header {
-    padding: 10px 0;
+    padding: 5px 10px 0 10px;
     flex-direction: column;
   }
 
@@ -73,10 +73,10 @@ body {
   }
 
   .header__title {
-    width: 60%;
+    width: 55%;
     height: 100%;
+    padding: 0;
     justify-content: flex-start;
-    align-items: flex-end;
   }
 
   .header__title h1 {
@@ -84,8 +84,10 @@ body {
   }
 
   .header__filters {
-    width: 40%;
-    height: 100%;
+    width: 45%;
+    height: 70%;
+    flex-direction: row;
+    justify-content: flex-end;
     align-items: flex-end;
   }
 
@@ -100,6 +102,7 @@ body {
   .appointments_past {
     width: 100%;
     height: auto;
+    padding: 2%;
   }
 
   .appointments_today h2,
@@ -114,7 +117,7 @@ body {
     padding: 0;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
   }
 

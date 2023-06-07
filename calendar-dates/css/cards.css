@@ -11,7 +11,10 @@
 }
 
 .appointments_title {
+  font-size: 16px;
   font-weight: 200;
+  text-transform: uppercase;
+  color: var(--color-text-title);
 }
 
 .card__wrapper {
@@ -41,8 +44,22 @@
 .card__priority {
   width: auto;
   height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
   font-size: 12px;
   font-weight: 300;
+  color: var(--color-text-light);
+}
+
+.card__priority__value {
+  width: 19px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-background);
+  border-radius: 50%;
 }
 
 .card__date {
@@ -51,6 +68,7 @@
   font-size: 12px;
   font-weight: 200;
   font-style: italic;
+  color: var(--color-text-light);
 }
 
 .appointments_today {
@@ -67,27 +85,27 @@
 
 .appointments_today .card__wrapper {
   background: var(--color-bg-today-card);
-  background: linear-gradient(0deg, var(--color-bg-today-card) 0%, #b0b8e1 100%);
+  background: linear-gradient(0deg, #9b9db7 0%, #363b6e 100%);
 }
 
 .appointments_upcoming .card__wrapper {
   background: var(--color-bg-upcoming-card);
-  background: linear-gradient(0deg, var(--color-bg-upcoming-card) 0%, #d6eca4 100%);
+  background: linear-gradient(0deg, #afb1c5 0%, #4a4f7d 100%);
 }
 
 .appointments_past .card__wrapper {
   background: var(--color-bg-past-card);
-  background: linear-gradient(0deg, var(--color-bg-past-card) 0%, #f4adad 100%);
+  background: linear-gradient(0deg, #c3c4d4 0%, #5e628b 100%);
 }
 
 .card__title {
   width: 100%;
   height: auto;
   padding: 10px 5px 5px 10px;
-  background-color: #eeeeee;
+  background-color: #d7d8e2;
   font-size: 15px;
   font-weight: 300;
   border-radius: 3px;
-  box-shadow: inset 4px 4px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 4px 4px 6px rgba(0, 0, 0, 0.5);
   text-align: center;
 }

@@ -8,13 +8,14 @@ header {
   position: fixed;
   display: flex;
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(12px);
+  background-color: rgb(235, 235, 241, 0.3);
+  backdrop-filter: blur(16px);
 }
 
 .main-header {
   width: 100%;
   height: 100%;
+  padding: 0 2%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -26,7 +27,7 @@ header {
 }
 
 .header__logo svg {
-  width: auto;
+  width: 100%;
   height: 100%;
 }
 
@@ -35,12 +36,14 @@ header {
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header__title {
-  width: 70%;
+  width: 65%;
   height: 100%;
+  padding: 0 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,49 +51,68 @@ header {
 
 .header__title h1 {
   font-size: 30px;
-  font-weight: 600;
-  font-family: "Roboto", sans-serif;
+  font-weight: 200;
   letter-spacing: 1px;
-  color: var(--color-text-light);
+  color: var(--color-text-title);
   text-transform: uppercase;
-  text-shadow: 1px 1px 0px #353535, 1px 2px 0px #353535, 1px 3px 0px #353535;
+  text-align: center;
 }
 
 .header__filters {
-  width: 30%;
-  height: auto;
+  width: 170px;
+  height: 35px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  gap: 5%;
+  flex-wrap: wrap;
 }
 
-.header__filters__priority,
-.header__filters__dummy {
+.filter__priority__wrapper,
+.filter__date__wrapper {
+  width: auto;
+  height: 100%;
+  padding: 0 5px;
   position: relative;
-  padding: 5px 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text-title);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.header__filters__priority:hover,
-.header__filters__dummy:hover {
-  color: rgba(0, 0, 0, 0.7);
+.filter__priority__wrapper:hover,
+.filter__date__wrapper:hover {
+  color: rgba(54, 59, 110, 0.7);
 }
 
-.header__filters__priority.active {
+.filter__priority__wrapper.active,
+.filter__date__wrapper.active {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 3px;
 }
 
-.header__filters__priority.active::after {
+.filter__priority__wrapper.active::after,
+.filter__date__wrapper.active::after {
   content: "";
   width: 100%;
   height: 2px;
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--color-text-title);
   border-radius: 3px;
+}
+
+.priority__icon,
+.date__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.priority__icon img,
+.date__icon img {
+  width: 20px;
+  height: 20px;
 }

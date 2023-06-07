@@ -1,5 +1,5 @@
 import { GET } from "./utils/http.js";
-import { cardGen, qS, getRandomDate, randomNumber, orderByPriority } from "./utils/fn.js";
+import { cardGen, qS, getRandomDate, randomNumber, onHandleClickDate, onHandleClickPriority } from "./utils/fn.js";
 
 export const dataMock = [
     {
@@ -34,8 +34,11 @@ export const dataMock = [
 export const todayCardsContainerEl = qS(".todayCardsContainer");
 export const upcomingCardsContainerEl = qS(".upcomingCardsContainer");
 export const pastCardsContainerEl = qS(".pastCardsContainer");
-const priorityBtnEl = qS(".header__filters__priority");
-const startDate = new Date('2023-05-20');
+export const priorityBtnEl = qS(".filter__priority__wrapper");
+export const dateBtnEl = qS(".filter__date__wrapper");
+export const iconSortingPriorityEl = qS(".priority__icon");
+export const iconSortingDateEl = qS(".date__icon");
+const startDate = new Date('2023-05-31');
 const endDate = new Date('2023-06-10');
 const minPriority = 1;
 const maxPriority = 4;
@@ -44,7 +47,6 @@ export let todoTodayList = [];
 export let todoUpcomingList = [];
 export let todoPastList = [];
 export let currentDate = new Date();
-let orderPriorityClickCounter = 0;
 
 /* ASYNC */
 let remoteData = GET("");
@@ -54,6 +56,7 @@ remoteData
         todoList.map((user) => {
             user.date = getRandomDate(startDate, endDate);
             user.priority = randomNumber(minPriority, maxPriority);
+            return user;
         })
     })
     .then(() => todoList.forEach((todo) => {
@@ -73,17 +76,6 @@ remoteData
 /* SYNC */
 
 /* LISTENERS */
-priorityBtnEl.addEventListener("click", () => {
-    ++orderPriorityClickCounter;
-    if (orderPriorityClickCounter === 1) {
-        priorityBtnEl.classList.add("active");
-        orderByPriority("descending");
-    }
-    else if (orderPriorityClickCounter === 2)
-        orderByPriority("ascending");
-    else {
-        orderByPriority("none");
-        orderPriorityClickCounter = 0;
-        priorityBtnEl.classList.remove("active");
-    }
-});
+priorityBtnEl.addEventListener("click", onHandleClickPriority);
+
+dateBtnEl.addEventListener("click", onHandleClickDate);
