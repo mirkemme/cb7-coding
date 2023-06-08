@@ -3,7 +3,7 @@
 header {
   width: 100%;
   max-width: 1400px;
-  min-width: 350px;
+  min-width: 360px;
   height: 80px;
   position: fixed;
   display: flex;

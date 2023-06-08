@@ -11,18 +11,31 @@
 html {
   margin: 0 auto;
   max-width: 1400px;
-  min-width: 374px;
+  min-width: 360px;
   scroll-behavior: smooth;
 }
 
 body {
-  width: 100%;
-  height: 100%;
   position: relative;
   font-family: Geologica, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
   color: var(--text-dark);
   background-color: var(--color-background);
+}
+
+.listNotFoundModal {
+  width: 250px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: brown;
+  position: fixed;
+  top: calc(50% - 125px);
+  left: calc(50% - 100px);
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.363);
 }
 
 #root {
@@ -49,10 +62,42 @@ body {
 
 /* media query mobile */
 @media screen and (max-width: 480px) {
-  header {
-    background-color: rgba(0, 0, 0, 0.1);
+  .appointments_today,
+  .appointments_upcoming,
+  .appointments_past {
+    width: 33.3%;
+    padding: 1%;
+    padding-top: 10px;
   }
 
+  .appointments_today h2,
+  .appointments_upcoming h2,
+  .appointments_past h2 {
+    font-size: 14px;
+  }
+
+  .todayCardsContainer,
+  .upcomingCardsContainer,
+  .pastCardsContainer {
+    padding: 0;
+    gap: 6px;
+  }
+
+  .card__wrapper {
+    padding: 6px;
+    box-shadow: none;
+    gap: 6px;
+  }
+
+  .card__title {
+    padding: 6px 4px 4px 6px;
+    font-size: 13px;
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* media query tablet */
+@media screen and (max-width: 768px) {
   .main-header {
     padding: 5px 10px 0 10px;
     flex-direction: column;
@@ -73,7 +118,7 @@ body {
   }
 
   .header__title {
-    width: 55%;
+    width: auto;
     height: 100%;
     padding: 0;
     justify-content: flex-start;
@@ -84,61 +129,11 @@ body {
   }
 
   .header__filters {
-    width: 45%;
+    width: auto;
     height: 70%;
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-end;
-  }
-
-  #root {
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 0px;
-  }
-
-  .appointments_today,
-  .appointments_upcoming,
-  .appointments_past {
-    width: 100%;
-    height: auto;
-    padding: 2%;
-  }
-
-  .appointments_today h2,
-  .appointments_upcoming h2,
-  .appointments_past h2 {
-    font-size: 18px;
-  }
-
-  .todayCardsContainer,
-  .upcomingCardsContainer,
-  .pastCardsContainer {
-    padding: 0;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-  }
-
-  .card__wrapper {
-    width: 45%;
-  }
-}
-
-/* media query tablet */
-@media screen and (min-width: 481px) {
-  .appointments_today {
-    width: 33.3%;
-    height: auto;
-  }
-  .appointments_upcoming {
-    width: 33.3%;
-    height: auto;
-  }
-  .appointments_past {
-    width: 33.3%;
-    height: auto;
   }
 }
 

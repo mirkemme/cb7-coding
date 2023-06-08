@@ -1,5 +1,5 @@
 import {
-    todoList, todoTodayList, todoUpcomingList, todoPastList, currentDate, todayCardsContainerEl, upcomingCardsContainerEl, pastCardsContainerEl,
+    bodyEl, todoList, todoTodayList, todoUpcomingList, todoPastList, currentDate, todayCardsContainerEl, upcomingCardsContainerEl, pastCardsContainerEl,
     priorityBtnEl, dateBtnEl, iconSortingPriorityEl, iconSortingDateEl
 } from "../script.js";
 
@@ -22,7 +22,7 @@ export const getRandomDate = (startDate, endDate) => {
     const randomTime = Math.random() * timeDiff;
     const randomDate = new Date(startDate.getTime() + randomTime);
 
-    return randomDate;
+    return randomDate.toISOString().slice(0, 10);
 }
 
 export const randomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
@@ -32,7 +32,7 @@ export const cardGen = ({ priority = "Not specified", date = "Not specified", ti
     const cardInfoEls = createEl("div", "", { name: "class", value: "card__info" });
     const priorityEl = createEl("div", "Priority: ", { name: "class", value: "card__priority" });
     const priorityValueEl = createEl("p", priority, { name: "class", value: "card__priority__value" });
-    const dateEl = createEl("p", date.toLocaleDateString("it-IT"), { name: "class", value: "card__date" });
+    const dateEl = createEl("p", date.split("-").reverse().join("/"), { name: "class", value: "card__date" });
     const titleEl = createEl("h4", title, { name: "class", value: "card__title" });
 
     priorityEl.append(priorityValueEl);
@@ -48,10 +48,10 @@ export const renderElements = (todoItems, listEl) => {
 
 const renderTodoList = () => {
     todoList.forEach((todo) => {
-        if (todo.date.toISOString().slice(0, 10) === currentDate.toISOString().slice(0, 10)) {
+        if (todo.date === currentDate) {
             todayCardsContainerEl.append(cardGen(todo));
         }
-        else if (todo.date.toISOString().slice(0, 10) > currentDate.toISOString().slice(0, 10)) {
+        else if (todo.date > currentDate) {
             upcomingCardsContainerEl.append(cardGen(todo));
         } else {
             pastCardsContainerEl.append(cardGen(todo));
@@ -116,22 +116,18 @@ export const sortingByPriority = (sorting) => {
 }
 
 const sortingByDate = (sorting) => {
-    todayCardsContainerEl.textContent = "";
     upcomingCardsContainerEl.textContent = "";
     pastCardsContainerEl.textContent = "";
 
     if (sorting === "none") renderTodoList();
     else {
         if (sorting === "descending") {
-            todoTodayList.sort((item1, item2) => item2.date - item1.date);
-            todoUpcomingList.sort((item1, item2) => item2.date - item1.date);
-            todoPastList.sort((item1, item2) => item2.date - item1.date);
+            todoUpcomingList.sort((item1, item2) => Date.parse(item2.date) - Date.parse(item1.date));
+            todoPastList.sort((item1, item2) => Date.parse(item2.date) - Date.parse(item1.date));
         } else if (sorting === "ascending") {
-            todoTodayList.sort((item1, item2) => item1.date - item2.date);
-            todoUpcomingList.sort((item1, item2) => item1.date - item2.date);
-            todoPastList.sort((item1, item2) => item1.date - item2.date);
+            todoUpcomingList.sort((item1, item2) => Date.parse(item1.date) - Date.parse(item2.date));
+            todoPastList.sort((item1, item2) => Date.parse(item1.date) - Date.parse(item2.date));
         }
-        renderElements(todoTodayList, todayCardsContainerEl);
         renderElements(todoUpcomingList, upcomingCardsContainerEl);
         renderElements(todoPastList, pastCardsContainerEl);
     }
@@ -182,4 +178,24 @@ export const onHandleClickDate = () => {
         sortingDateClickCounter = 0;
         dateBtnEl.classList.remove("active");
     }
+}
+
+export const listNotFoundModalGen = () => {
+    const modalEl = createEl("div", "", { name: "class", value: "listNotFoundModal" });
+    const titleEl = createEl("h4", todoList[0].title);
+
+    modalEl.appendChild(titleEl);
+    bodyEl.appendChild(modalEl);
+}
+
+export const noAppointmentsMessage = (type) => {
+    const messageEl = createEl("p", "");
+    if (type === "today")
+        messageEl.textContent = "Nessun appuntamento per oggi.";
+    else {
+        if (type === "upcoming")
+            messageEl.textContent = "Nessun appuntamento previsto per i prossimi giorni.";
+        else messageEl.textContent = "Nessun appuntamento concluso da visualizzare.";
+    }
+    return messageEl;
 }
