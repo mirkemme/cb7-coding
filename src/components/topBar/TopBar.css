@@ -1,0 +1,21 @@
+.TopBar {
+  padding: 12px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fafafa;
+  box-shadow: 0px 0.33px 0px #a6a6aa;
+}
+
+.TopBar__logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.TopBar__actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
