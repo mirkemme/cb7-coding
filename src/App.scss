@@ -1,0 +1,32 @@
+@import "./scss/all.scss";
+
+body {
+    background-color: $colorBackgroundDark;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    width: 100vw;
+    height: 100vh;
+  }
+
+.title {
+    padding: 10px;
+    color: $colorTextDark;
+    background-color: $colorBackgroundLight;
+}
+
+.header {
+    @include flexboxCenter();
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+    background-color: $colorBackgroundLight;
+}
+
+.message {
+    @include centerPosition();
+    @include flexboxCenter();
+    width: 250px;
+    height: 80px;
+    padding: 10px;
+    color: $colorTextLight;
+    border: 1px solid $colorBackgroundLight;
+}

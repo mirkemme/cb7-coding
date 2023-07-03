@@ -1,0 +1,15 @@
+@mixin flexboxCenter() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 15px;
+}
+
+@mixin centerPosition() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
